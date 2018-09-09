@@ -1,6 +1,6 @@
 #
-# Copyright (C) 2014 The CyanogenMod Project
-# Copyright (C) 2017 The LineageOS Project
+# Copyright (C) 2016 The CyanogenMod Project
+# Copyright (C) 2018 The LineageOS Project
 #
 # Licensed under the Apache License, Version 2.0 (the "License");
 # you may not use this file except in compliance with the License.
@@ -15,22 +15,22 @@
 # limitations under the License.
 #
 
-# inherit from common g3
+# Inherit from lge g3-common
 -include device/lge/g3-common/BoardConfigCommon.mk
+
+DEVICE_PATH := device/lge/f400
 
 TARGET_OTA_ASSERT_DEVICE := g3,f400,f400k,f400s,f400l
 
 # Bluetooth
-BOARD_BLUETOOTH_BDROID_BUILDCFG_INCLUDE_DIR := device/lge/f400/bluetooth
-BOARD_CUSTOM_BT_CONFIG := device/lge/f400/bluetooth/vnd_g3.txt
+BOARD_BLUETOOTH_BDROID_BUILDCFG_INCLUDE_DIR := $(DEVICE_PATH)/bluetooth
+BOARD_CUSTOM_BT_CONFIG := $(DEVICE_PATH)/bluetooth/vnd_g3.txt
 BOARD_HAVE_BLUETOOTH_BCM := true
-
-# Extended Filesystem Support
-TARGET_EXFAT_DRIVER := sdfat
 
 # Kernel
 TARGET_KERNEL_CONFIG := lineageos_f400_defconfig
 TARGET_REQUIRES_BUMP := true
+TARGET_EXFAT_DRIVER := sdfat
 
 # NFC
 BOARD_NFC_CHIPSET := pn547
@@ -45,7 +45,7 @@ BOARD_USERDATAIMAGE_PARTITION_SIZE := 27426023424
 TARGET_USERIMAGES_USE_F2FS := true
 
 # Recovery
-TARGET_RECOVERY_FSTAB := device/lge/f400/rootdir/etc/fstab.g3
+TARGET_RECOVERY_FSTAB := $(DEVICE_PATH)/rootdir/etc/fstab.g3
 
 # RIL
 BOARD_GLOBAL_CFLAGS += -DUSE_RIL_VERSION_10
@@ -64,5 +64,5 @@ WIFI_DRIVER_FW_PATH_PARAM := "/sys/module/bcmdhd/parameters/firmware_path"
 WIFI_DRIVER_FW_PATH_STA := "/system/vendor/firmware/fw_bcmdhd.bin"
 WPA_SUPPLICANT_VERSION := VER_0_8_X
 
-# inherit from the proprietary version
+# Inherit from the proprietary version
 -include vendor/lge/f400/BoardConfigVendor.mk
