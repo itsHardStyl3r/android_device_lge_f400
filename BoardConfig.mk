@@ -29,6 +29,7 @@ BOARD_HAVE_BLUETOOTH_BCM := true
 
 # Kernel
 TARGET_KERNEL_CONFIG := lineageos_f400_defconfig
+KERNEL_TOOLCHAIN=$(shell pwd)/prebuilts/gcc/linux-x86/arm/oreo-arm-linux-androideabi-4.9/bin
 TARGET_REQUIRES_BUMP := true
 TARGET_EXFAT_DRIVER := sdfat
 
