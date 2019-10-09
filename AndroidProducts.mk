@@ -15,3 +15,8 @@
 
 PRODUCT_MAKEFILES := \
     $(LOCAL_DIR)/aosp_f400.mk
+
+COMMON_LUNCH_CHOICES := \
+    aosp_f400-userdebug \
+    aosp_f400-eng \
+    aosp_f400-user
